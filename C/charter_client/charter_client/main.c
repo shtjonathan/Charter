@@ -15,17 +15,17 @@ typedef char * string;
 
 int main (int argc, const char * argv[])
 {
-  struct charter_s ch; // Declare the charter
-  unsigned int i;
-  double ary[3];
-  string names[2], labels[2];
+  struct charter_s  ch; // Declare the charter
+  unsigned int      i;
+  double            ary[3];
+  string            names[2], labels[2];
   
-  charter_init(&ch);  // Initialize defaukt values: ID = 1, host = localhost, delay = 10000 us
-  ch.delay = 50000;   // Override default delay to 50000 us
-  charter_clear(&ch); // Clear App buffer
+  charter_init(&ch);    // Initialize default values: ID = 1, host = localhost, delay = 10000 us
+  ch.delay = 50000;     // Override default delay to 50000 us
+  charter_clear(&ch);   // Clear App buffer
   
   for (i = 0; i < 200; i++) {
-    ary[0] = i/10.0;
+    ary[0] = i / 10.0;
     ary[1] = sin(i / 10.0);
     ary[2] = cos(i / 10.0);
     charter_sary(&ch, ary, 3); // Send data
